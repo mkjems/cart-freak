@@ -1,0 +1,11 @@
+{
+  "name": "cart-freak-server",
+  "description": "A nice go-cart game",
+  "version": "0.0.1",
+  "devDependencies": {},
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.4.5",
+    "ejs": "1.0.0"
+  }
+}
