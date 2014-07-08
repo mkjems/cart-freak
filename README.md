@@ -13,6 +13,9 @@ A go-gart racing game
 
     brew install fswatch
 
+
+npm install -g es6-module-transpiler
+
 ### Install the local server
 
 ### Build
