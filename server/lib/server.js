@@ -24,6 +24,18 @@ io.on('connection', function (socket) {
 
   socket.on('my other event', function (data) {
     console.log(data);
+    socket.emit('message', { roger: 'that' });
   });
 
+  socket.on('disconnect', function(data){
+    console.log('disconnect',data);
+  });
+
+  socket.on('message', function(data){
+    console.log('message',data);
+  });
+
+  socket.on('connect', function(data){
+    console.log('connect', data);
+  });
 });
