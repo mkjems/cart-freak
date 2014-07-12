@@ -5,7 +5,7 @@ tell application "Google Chrome"
          repeat with aWindow in windowList
                 set tabList to every tab of aWindow
         repeat with atab in tabList
-            if (URL of atab contains "localhost") then
+            if (URL of atab contains "cart-freak") then
                 tell atab to reload
             end if
         end repeat

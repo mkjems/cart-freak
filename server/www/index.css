@@ -6,3 +6,7 @@ a:link    {color:orange;}
 a:visited {color:orange;}
 a:hover   {color:red;}
 a:active  {color:yellow;}
+
+canvas.canvas{
+    border:1px solid #fff;
+}

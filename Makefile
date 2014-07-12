@@ -38,5 +38,5 @@ server:
 	@cd $(SERVER); node lib/server.js
 
 watch:
-	@echo Watching for changes...
+	@echo Watching for changes in $(SRC)
 	@fswatch -o $(SRC)/ | xargs -n1 -I{} ./test.sh

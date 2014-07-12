@@ -1,20 +1,27 @@
-define(function (require, exports, module) {var h = require('./file2.js');
-h.hello();
+$(document).ready(function() {
+    var socket = io.connect('http://cart-freak.com:3000/');
 
-var socket = io.connect('http://cart-freak.com:3000/');
+    socket.on('index world changed', function (data) {
+        //console.log('connections changed', data);
+        ractive.set('conectionCount', data.connectionsCount);
+    });
 
-socket.on('news', function (data) {
+    var ractive = new Ractive({
+        // The `el` option can be a node, an ID, or a CSS selector.
+        el: 'container',
 
-    console.log(data);
+        // We could pass in a string, but for the sake of convenience
+        // we're passing the ID of the <script> tag above.
+        template: '#template',
 
-    socket.emit('my other event', { my: 'data' });
+        // Here, we're passing in some initial data
+        data: {
+            conectionsCount: '0',
+            startingRaces:['Starting 1'],
+            activeRaces: ['Active 1'],
+            completedRaces: ['Completed 1']
+        }
+    });
 
-});
-
-socket.on('message', function (data) {
-
-    console.log(data);
-    socket.emit('message', { Martin: 'work!' });
-
-});
+    window.console.log('index done..');
 });

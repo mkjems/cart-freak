@@ -3,16 +3,47 @@
     <head>
       <meta charset="utf-8">
       <title>Cart-freak</title>
+
       <link rel="stylesheet" type="text/css" href="index.css">
 
       <script data-main="index" src="js/jquery-2.1.1.min.js"></script>
       <script src="/js/socket.io-1.0.6.js"></script>
 
+      <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+
       <script data-main="index" src="js/require.js"></script>
     </head>
     <body>
+
+        <script id='template' type='text/ractive'>
+
+          <h2>Active Races:</h2>
+            <ul>
+            {{#activeRaces}}
+              <li>{{this}} <a href="">watch</a></li>
+            {{/activeRaces}}
+            </ul>
+
+          <h2>Starting Races:</h2>
+            <ul>
+            {{#startingRaces}}
+              <li>{{this}} <a href="">join</a></li>
+            {{/startingRaces}}
+            </ul>
+
+          <h2>Completed Races:</h2>
+            <ul>
+            {{#completedRaces}}
+              <li>{{this}} <a href="">see results</a></li>
+            {{/completedRaces}}
+            </ul>
+
+          <h2>Humans connected: {{conectionCount}}</h2>
+
+        </script>
+
         <h1>Cart-freak</h1>
-        <div id="message"></div>
+        <div id='container'></div>
+
     </body>
 </html>
-
