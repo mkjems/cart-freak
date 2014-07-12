@@ -5,19 +5,24 @@ A go-gart racing game
 
 # To get up and running:
 
-### Install traceur
+### Install Require js
 
-    npm install -g traceur
 
 ### Install fswatch
 
     brew install fswatch
 
 
-npm install -g es6-module-transpiler
+### Build the local server
 
-### Install the local server
-
+    cd server
+    npm install
+    
 ### Build
 
+    make build
+    
 ### Run server
+    
+    make server
+
