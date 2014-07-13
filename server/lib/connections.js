@@ -1,13 +1,13 @@
 
 /*
-    An array of sockets to all visitors.
+    connections is an array of sockets to all visitors.
     Handles connect and disconnect.
 */
 
 var connections = [],
     _ = require('lodash'),
     Connection = require('./Connection.js'),
-    EventEmitter = require('events').EventEmitter;;
+    EventEmitter = require('events').EventEmitter;
 
 var serial=1;
 function getConnectionSerialNo() {
@@ -55,3 +55,19 @@ exports.setup = function(io){
 };
 
 exports.events = events;
+
+exports.getHumansConnected = function() {
+    //return [{name:'human 1', lastMessage:'hello'}, {name:'human2', lastMessage:'dav'}];
+    return _.map(connections, function(connection) {
+        return {
+            name: connection.name,
+            lastMessage: connection.lastMessage
+        };
+    });
+
+};
+
+exports.getCount = function() {
+    return connections.length;
+};
+

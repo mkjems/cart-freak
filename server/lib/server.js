@@ -17,5 +17,6 @@ var server = app.listen(3000, function() {
 
 var io = require('socket.io')(server);
 
-
 require('./connections').setup(io);
+
+require('./loungeSupervisor').setup(io);

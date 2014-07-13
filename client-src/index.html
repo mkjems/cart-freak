@@ -39,11 +39,25 @@
             </ul>
 
           <h2>Humans connected: {{conectionCount}}</h2>
+            <ul>
+            {{#humansConnected}}
+              <li>{{this.name}} says: "{{this.lastMessage}}"</li>
+            {{/humansConnected}}
+            </ul>
+        </script>
 
+        <script id="template-index-personal">
+          {{#showSetName}}
+          Your name: <input type="text" name="yourNewName" value="{{yourNewName}}"><button type="button" id="setName">Set name</button>
+          {{/showSetName}}
+          {{#showTypeSomething}}
+          Type something:
+          {{/showTypeSomething}}
         </script>
 
         <h1>Cart-freak</h1>
         <div id='container'></div>
+        <div id='container-personal'></div>
 
     </body>
 </html>

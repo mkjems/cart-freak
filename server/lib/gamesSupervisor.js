@@ -6,10 +6,14 @@
 
 var games = [];
 
-exports.getStartingGames = function(){
-
+exports.getStartingRaces = function(){
+    return ['Starting1', 'Start2'];
 };
 
-exports.getActiveGames = function(){
+exports.getActiveRaces = function(){
+    return ['Active 1', 'Active2']
+};
 
+exports.getCompletedRaces = function(){
+    return ['Completed 1', 'comp2', 'comp3'];
 };
