@@ -3,6 +3,9 @@ cart-freak
 
 A go-gart racing game
 
+Using page.js for client side routing.
+Using nodemon https://github.com/remy/nodemon to watch/restart node
+
 # To get up and running:
 
 ### Install Require js
