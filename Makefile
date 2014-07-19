@@ -9,10 +9,18 @@ server_handlers = server/lib/handlers/
 html_files = $(shell find $(SRC) -name '*.html')
 dist_html_files = $(addprefix $(DIST_HTML)/,$(html_files:$(SRC)/%=%))
 
-build: clean css js
+css_files = $(shell find $(SRC) -name '*.css')
+build_css_files = $(addprefix $(BUILD)/,$(css_files:$(SRC)/%=%))
+
+build: clean js $(build_css_files)
 
 css: build_folder
 	@cat $(SRC)/index.css >> $(BUILD)/index.css
+
+$(BUILD)/%.css : $(SRC)/%.css
+	@mkdir -p $(dir $@)
+	@cp $< $@
+	@$(warning $@)
 
 $(DIST_HTML)/%.html : $(SRC)/%.html
 	@mkdir -p $(dir $@)

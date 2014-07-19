@@ -8,6 +8,7 @@ $(document).ready(function() {
     page();
 
     function index() {
+
         document.querySelector('p')
         .textContent = 'viewing index';
     }

@@ -3,14 +3,24 @@
     <head>
       <meta charset="utf-8">
       <title>Cart-freak</title>
-      <link rel="stylesheet" type="text/css" href="index.css">
-      <script data-main="index" src="js/jquery-2.1.1.min.js"></script>
-      <script src="/js/socket.io-1.0.6.js"></script>
-      <script data-main="game" src="js/require.js"></script>
+      <link rel="stylesheet" type="text/css" href="/css/index.css">
+
+      <script src="/libs/jquery-2.1.1.min.js"></script>
+      <script src="/libs/jquery-2.1.1.min.js"></script>
+      <script src="/libs/page.js"></script>
+
+      <script data-main="index" src="/libs/require.js"></script>
+
     </head>
     <body>
         <h1>Cart-freak Game</h1>
-        <canvas class="canvas" width="500" height="500"></canvas>
+
+        <p></p>
+
+        <a href="contact">link to contact</a><br>
+        <a href="about">about</a>
+
+        <!-- <canvas class="canvas" width="500" height="500"></canvas> -->
 
         <script id='template' type='text/ractive'>
 
@@ -43,7 +53,7 @@
             </ul>
         </script>
 
-        <script id="template-index-personal">
+        <script id="template-index-personal" type='text/ractive'>
           {{#showSetName}}
           Your name: <input type="text" name="yourNewName" value="{{yourNewName}}"><button type="button" id="setName">Set name</button>
           {{/showSetName}}
@@ -52,7 +62,6 @@
           {{/showTypeSomething}}
         </script>
 
-        <h1>Cart-freak</h1>
         <div id='container'></div>
         <div id='container-personal'></div>
     </body>
