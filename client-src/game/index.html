@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Cart-freak</title>
+      <link rel="stylesheet" type="text/css" href="index.css">
+      <script data-main="index" src="js/jquery-2.1.1.min.js"></script>
+      <script src="/js/socket.io-1.0.6.js"></script>
+      <script data-main="game" src="js/require.js"></script>
+    </head>
+    <body>
+        <h1>Cart-freak Game</h1>
+        <canvas class="canvas" width="500" height="500"></canvas>
+
+        <script id='template' type='text/ractive'>
+
+          <h2>Active Races:</h2>
+            <ul>
+            {{#activeRaces}}
+              <li>{{this}} <a href="">watch</a></li>
+            {{/activeRaces}}
+            </ul>
+
+          <h2>Starting Races:</h2>
+            <ul>
+            {{#startingRaces}}
+              <li>{{this}} <a href="">join</a></li>
+            {{/startingRaces}}
+            </ul>
+
+          <h2>Completed Races:</h2>
+            <ul>
+            {{#completedRaces}}
+              <li>{{this}} <a href="">see results</a></li>
+            {{/completedRaces}}
+            </ul>
+
+          <h2>Humans connected: {{conectionCount}}</h2>
+            <ul>
+            {{#humansConnected}}
+              <li>{{this.name}} says: "{{this.lastMessage}}"</li>
+            {{/humansConnected}}
+            </ul>
+        </script>
+
+        <script id="template-index-personal">
+          {{#showSetName}}
+          Your name: <input type="text" name="yourNewName" value="{{yourNewName}}"><button type="button" id="setName">Set name</button>
+          {{/showSetName}}
+          {{#showTypeSomething}}
+          Type something:
+          {{/showTypeSomething}}
+        </script>
+
+        <h1>Cart-freak</h1>
+        <div id='container'></div>
+        <div id='container-personal'></div>
+    </body>
+</html>

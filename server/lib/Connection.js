@@ -8,6 +8,7 @@ function Connection(serialNo, socket, io){
     this.name = 'Human ' + this.serialNo;
     this.lastMessage = 'Hmm..';
     var that = this;
+
     socket.on('set name', function(data){
         console.log('set name', data, that.serialNo);
         that.name = data.name;

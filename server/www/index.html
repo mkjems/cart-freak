@@ -2,7 +2,7 @@
 <html>
     <head>
       <meta charset="utf-8">
-      <title>Cart-freak</title>
+      <title>Cart-freak WELCOME screen</title>
 
       <link rel="stylesheet" type="text/css" href="index.css">
 
@@ -15,49 +15,7 @@
     </head>
     <body>
 
-        <script id='template' type='text/ractive'>
-
-          <h2>Active Races:</h2>
-            <ul>
-            {{#activeRaces}}
-              <li>{{this}} <a href="">watch</a></li>
-            {{/activeRaces}}
-            </ul>
-
-          <h2>Starting Races:</h2>
-            <ul>
-            {{#startingRaces}}
-              <li>{{this}} <a href="">join</a></li>
-            {{/startingRaces}}
-            </ul>
-
-          <h2>Completed Races:</h2>
-            <ul>
-            {{#completedRaces}}
-              <li>{{this}} <a href="">see results</a></li>
-            {{/completedRaces}}
-            </ul>
-
-          <h2>Humans connected: {{conectionCount}}</h2>
-            <ul>
-            {{#humansConnected}}
-              <li>{{this.name}} says: "{{this.lastMessage}}"</li>
-            {{/humansConnected}}
-            </ul>
-        </script>
-
-        <script id="template-index-personal">
-          {{#showSetName}}
-          Your name: <input type="text" name="yourNewName" value="{{yourNewName}}"><button type="button" id="setName">Set name</button>
-          {{/showSetName}}
-          {{#showTypeSomething}}
-          Type something:
-          {{/showTypeSomething}}
-        </script>
-
-        <h1>Cart-freak</h1>
-        <div id='container'></div>
-        <div id='container-personal'></div>
+        <H1>CART FREAK WELCOME</H1>
 
     </body>
 </html>

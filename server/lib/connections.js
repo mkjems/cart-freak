@@ -1,6 +1,6 @@
 
 /*
-    connections is an array of sockets to all visitors.
+    Connections is an array of sockets to all visitors.
     Handles connect and disconnect.
 */
 

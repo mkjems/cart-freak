@@ -17,12 +17,16 @@ A go-gart racing game
 
     cd server
     npm install
-    
+
+### instal nodemon
+
+    npm install -g nodemon
+
 ### Build
 
     make build
-    
+
 ### Run server
-    
+
     make server
 

@@ -7,9 +7,9 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', path.normalize( __dirname + '/../views/' ) ) ;
 
-require('./routes').register(app);
 
 app.use(express.static(__dirname + './../www'));
+require('./routes').register(app);
 
 var server = app.listen(3000, function() {
     console.log('Listening on port %d', server.address().port);

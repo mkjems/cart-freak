@@ -3,16 +3,18 @@
 SRC = client-src
 BUILD = build
 SERVER = server
+DIST_HTML = server/views
+server_handlers = server/lib/handlers/
 
 html_files = $(shell find $(SRC) -name '*.html')
-dest_html_files = $(addprefix $(BUILD)/,$(html_files:$(SRC)/%=%))
+dist_html_files = $(addprefix $(DIST_HTML)/,$(html_files:$(SRC)/%=%))
 
-build: clean css $(dest_html_files) js
+build: clean css js
 
 css: build_folder
 	@cat $(SRC)/index.css >> $(BUILD)/index.css
 
-$(BUILD)/%.html : $(SRC)/%.html
+$(DIST_HTML)/%.html : $(SRC)/%.html
 	@mkdir -p $(dir $@)
 	@cp $< $@
 	@$(warning $@)
@@ -24,19 +26,23 @@ js: build_folder
 build_folder:
 	@mkdir -p $(BUILD)
 
-dist: clean-dist build
+dist: clean-dist build $(dist_html_files)
 	@cp -r $(BUILD)/ server/www/
-	@mkdir -p server/www/js && cp -R libs/js/ server/www/js/
+	@mkdir -p server/www/libs && cp -R libs/js/ server/www/libs/
 
 clean:
 	@rm -rf $(BUILD)
 
 clean-dist:
 	@rm -rf $(SERVER)/www
+	@rm -rf $(DIST_HTML)/
 
 server:
-	@cd $(SERVER); node lib/server.js
+	@cd $(SERVER); node lib/server.js &
 
-watch:
+dist-watch:
 	@echo Watching for changes in $(SRC)
-	@fswatch -o $(SRC)/ | xargs -n1 -I{} ./test.sh
+	@fswatch -o $(SRC)/ | xargs -n1 -I{} ./make_dist_reload.sh
+
+server-watch:
+	@nodemon ./server/lib/server.js localhost 3000
