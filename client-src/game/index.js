@@ -1,25 +1,26 @@
 
+function prepareDom(name) {
+    $('#rootBox').html('');
+    $('#rootBox').html($('#template-'+ name).html());
+}
+
 $(document).ready(function() {
 
+    var cleanup = require('./cleanup');
     page.base('/game');
 
     page('/', function(){
-        require('./old');
+        cleanup.runTodos();
+        prepareDom('');
+        require('./old')();
     });
 
-    page('/about', function(){
-
+    page('/play', function(){
+        cleanup.runTodos();
+        prepareDom('play');
+        require('./play')();
     });
 
     page();
-
-
-
-
-    // $('.gotoAbout').click(function(e) {
-    //     e.preventDefault();
-    //     page('/about');
-    // });
-
 
 });

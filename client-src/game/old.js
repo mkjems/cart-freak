@@ -1,3 +1,14 @@
+
+var cleanup = require('./cleanup');
+
+function prepareDom() {
+    $('#rootBox').html($('#template-old').html());
+}
+
+module.exports = function(){
+
+    prepareDom();
+
     var socket = io.connect('http://cart-freak.com:3000/');
 
     socket.on('index world changed', function (data) {
@@ -46,3 +57,9 @@
     });
 
     window.console.log('index done..');
+
+    cleanup.addTodo(function(a,b) {
+        console.log('cleaning up old...', a+b);
+    }, this, 3,4);
+
+};
